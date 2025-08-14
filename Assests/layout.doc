@@ -1,0 +1,41 @@
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter, Amiri } from "next/font/google"
+import "./globals.css"
+import { AdkarProvider } from "@/contexts/adkar-context"
+import { LanguageProvider } from "@/contexts/language-context"
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+})
+
+const amiri = Amiri({
+  subsets: ["arabic", "latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  variable: "--font-amiri",
+})
+
+export const metadata: Metadata = {
+  title: "YaQeen - Your Companion for Faith",
+  description: "A modern Islamic app for prayer times, Quran, Tasbih, and spiritual guidance",
+  generator: "v0.app",
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en" className={`${inter.variable} ${amiri.variable} antialiased`}>
+      <body>
+        <LanguageProvider>
+          <AdkarProvider>{children}</AdkarProvider>
+        </LanguageProvider>
+      </body>
+    </html>
+  )
+}

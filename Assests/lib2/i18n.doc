@@ -1,0 +1,199 @@
+import i18n from "i18next"
+import { initReactI18next } from "react-i18next"
+
+// Translation files
+const resources = {
+  en: {
+    translation: {
+      // Landing Page
+      welcome: "Welcome to YaQeen",
+      tagline: "Your Companion for Faith",
+      selectLanguage: "Select Your Language",
+      english: "English",
+      arabic: "العربية",
+      continue: "Continue",
+
+      // Navigation
+      home: "Home",
+      prayerTimes: "Prayer Times",
+      quran: "Quran",
+      tasbih: "Tasbih",
+      qibla: "Qibla",
+      adkar: "Adkar",
+      duas: "Duas",
+      chat: "AI Assistant",
+      articles: "Articles",
+      videos: "Videos",
+      mosques: "Mosque Finder",
+      calendar: "Islamic Calendar",
+      ramadan: "Ramadan",
+      settings: "Settings",
+      language: "Language",
+
+      // Prayer Times
+      fajr: "Fajr",
+      dhuhr: "Dhuhr",
+      asr: "Asr",
+      maghrib: "Maghrib",
+      isha: "Isha",
+      sunrise: "Sunrise",
+      now: "NOW",
+      next: "Next",
+      remaining: "remaining",
+
+      // Common
+      save: "Save",
+      cancel: "Cancel",
+      close: "Close",
+      search: "Search",
+      favorites: "Favorites",
+      settings: "Settings",
+      loading: "Loading...",
+      error: "Error",
+      retry: "Retry",
+      comingSoon: "Coming Soon",
+      pageUnlocksOn: "Page Unlocks On",
+
+      // Auth
+      login: "Login",
+      signup: "Sign Up",
+      email: "Email",
+      password: "Password",
+      forgotPassword: "Forgot Password?",
+      ghostMode: "Explore in Ghost Mode",
+
+      // Quran
+      surah: "Surah",
+      verse: "Verse",
+      translation: "Translation",
+      tafsir: "Tafsir",
+      audio: "Audio",
+      bookmark: "Bookmark",
+      share: "Share",
+
+      // Tasbih
+      targetMode: "Target Mode",
+      infiniteMode: "Infinite Mode",
+      count: "Count",
+      target: "Target",
+      reset: "Reset",
+      completed: "Completed",
+
+      // AI Chat
+      askQuestion: "Ask a question about Islam...",
+      islamicAssistant: "Islamic Assistant",
+      newChat: "New Chat",
+      clearHistory: "Clear History",
+
+      // Calendar
+      hijriDate: "Hijri Date",
+      gregorianDate: "Gregorian Date",
+      islamicEvents: "Islamic Events",
+      today: "Today",
+      month: "Month",
+      year: "Year",
+    },
+  },
+  ar: {
+    translation: {
+      // Landing Page
+      welcome: "مرحباً بك في يقين",
+      tagline: "رفيقك في الإيمان",
+      selectLanguage: "اختر لغتك",
+      english: "English",
+      arabic: "العربية",
+      continue: "متابعة",
+
+      // Navigation
+      home: "الرئيسية",
+      prayerTimes: "أوقات الصلاة",
+      quran: "القرآن الكريم",
+      tasbih: "التسبيح",
+      qibla: "القبلة",
+      adkar: "الأذكار",
+      duas: "الأدعية",
+      chat: "المساعد الذكي",
+      articles: "المقالات",
+      videos: "الفيديوهات",
+      mosques: "البحث عن المساجد",
+      calendar: "التقويم الهجري",
+      ramadan: "رمضان",
+      settings: "الإعدادات",
+      language: "اللغة",
+
+      // Prayer Times
+      fajr: "الفجر",
+      dhuhr: "الظهر",
+      asr: "العصر",
+      maghrib: "المغرب",
+      isha: "العشاء",
+      sunrise: "الشروق",
+      now: "الآن",
+      next: "التالية",
+      remaining: "متبقي",
+
+      // Common
+      save: "حفظ",
+      cancel: "إلغاء",
+      close: "إغلاق",
+      search: "بحث",
+      favorites: "المفضلة",
+      settings: "الإعدادات",
+      loading: "جاري التحميل...",
+      error: "خطأ",
+      retry: "إعادة المحاولة",
+      comingSoon: "قريباً",
+      pageUnlocksOn: "الصفحة تفتح في",
+
+      // Auth
+      login: "تسجيل الدخول",
+      signup: "إنشاء حساب",
+      email: "البريد الإلكتروني",
+      password: "كلمة المرور",
+      forgotPassword: "نسيت كلمة المرور؟",
+      ghostMode: "استكشاف بدون حساب",
+
+      // Quran
+      surah: "سورة",
+      verse: "آية",
+      translation: "الترجمة",
+      tafsir: "التفسير",
+      audio: "الصوت",
+      bookmark: "إشارة مرجعية",
+      share: "مشاركة",
+
+      // Tasbih
+      targetMode: "وضع الهدف",
+      infiniteMode: "وضع لا نهائي",
+      count: "العدد",
+      target: "الهدف",
+      reset: "إعادة تعيين",
+      completed: "مكتمل",
+
+      // AI Chat
+      askQuestion: "اسأل سؤالاً عن الإسلام...",
+      islamicAssistant: "المساعد الإسلامي",
+      newChat: "محادثة جديدة",
+      clearHistory: "مسح التاريخ",
+
+      // Calendar
+      hijriDate: "التاريخ الهجري",
+      gregorianDate: "التاريخ الميلادي",
+      islamicEvents: "المناسبات الإسلامية",
+      today: "اليوم",
+      month: "الشهر",
+      year: "السنة",
+    },
+  },
+}
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: "en", // default language
+  fallbackLng: "en",
+  interpolation: {
+    escapeValue: false,
+  },
+})
+
+export default i18n

@@ -1,0 +1,112 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { ArrowLeft, Eye, BookOpen, Clock, Compass, Sparkles } from "lucide-react"
+import Link from "next/link"
+
+export default function GhostModePage() {
+  const features = [
+    {
+      icon: Clock,
+      title: "Prayer Times",
+      description: "View prayer times for your location",
+      available: true,
+    },
+    {
+      icon: BookOpen,
+      title: "Quran Reader",
+      description: "Read selected chapters of the Quran",
+      available: true,
+    },
+    {
+      icon: Compass,
+      title: "Qibla Direction",
+      description: "Find the direction to Makkah",
+      available: true,
+    },
+    {
+      icon: Sparkles,
+      title: "Digital Tasbih",
+      description: "Limited to 33 counts",
+      available: false,
+    },
+  ]
+
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br from-primary/10 via-background to-accent/10">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-md">
+        <Link href="/">
+          <Button variant="ghost" className="mb-6 p-2 neomorphic">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back
+          </Button>
+        </Link>
+
+        <Card className="p-8 neomorphic border-0 bg-card/80 backdrop-blur-sm">
+          <div className="text-center mb-8">
+            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-r from-primary/50 to-accent/50 flex items-center justify-center neomorphic">
+              <Eye className="w-6 h-6 text-white" />
+            </div>
+            <h1 className="text-2xl font-bold text-foreground mb-2">Ghost Mode</h1>
+            <p className="text-muted-foreground">Explore YaQeen with limited features</p>
+          </div>
+
+          <div className="space-y-4 mb-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: index * 0.1 }}
+                className={`flex items-center p-4 rounded-lg neomorphic-inset ${
+                  feature.available ? "bg-primary/5" : "bg-muted/50"
+                }`}
+              >
+                <feature.icon
+                  className={`w-5 h-5 mr-3 ${feature.available ? "text-primary" : "text-muted-foreground"}`}
+                />
+                <div className="flex-1">
+                  <h3 className={`font-medium ${feature.available ? "text-foreground" : "text-muted-foreground"}`}>
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{feature.description}</p>
+                </div>
+                {feature.available && <div className="w-2 h-2 bg-primary rounded-full"></div>}
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="space-y-4">
+            <Button
+              className="w-full h-12 text-lg neomorphic border-0 bg-primary/80 hover:bg-primary/90 text-primary-foreground"
+              onClick={() => (window.location.href = "/dashboard?mode=ghost")}
+            >
+              Continue in Ghost Mode
+            </Button>
+
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground mb-2">Want full access to all features?</p>
+              <Link href="/signup" className="text-primary hover:underline font-medium">
+                Create a free account
+              </Link>
+            </div>
+          </div>
+        </Card>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-6 p-4 rounded-lg bg-accent/10 border border-accent/20"
+        >
+          <p className="text-xs text-center text-muted-foreground">
+            Ghost Mode allows you to explore YaQeen without creating an account. Some features are limited or
+            unavailable.
+          </p>
+        </motion.div>
+      </motion.div>
+    </div>
+  )
+}
