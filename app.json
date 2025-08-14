@@ -1,39 +1,42 @@
 {
   "expo": {
-    "name": "yaqeen_v1",
+    "name": "YaQeen_v1",
     "slug": "yaqeen_v1",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "yaqeenv1",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/splash-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.yaqeen_v1"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
-    "plugins": [
-      "expo-router"
+    "assetBundlePatterns": [
+      "**/*"
     ],
-    "experiments": {
-      "typedRoutes": true
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "build": {
+        "babel": {
+          "include": ["react-native-web"]
+        },
+        "output": "web-build"
+      }
+    },
+    "extra": {
+      "firebase": {
+        "apiKey": "<YOUR_FIREBASE_API_KEY>",
+        "authDomain": "<YOUR_FIREBASE_AUTH_DOMAIN>",
+        "projectId": "<YOUR_FIREBASE_PROJECT_ID>",
+        "storageBucket": "<YOUR_FIREBASE_STORAGE_BUCKET>",
+        "messagingSenderId": "<YOUR_FIREBASE_MESSAGING_SENDER_ID>",
+        "appId": "<YOUR_FIREBASE_APP_ID>"
+      }
     }
   }
 }
